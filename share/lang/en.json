@@ -248,7 +248,8 @@
       "rank": ["#", "Rank"],
       "class": ["Cls", "Class/Job"],
       "owner": ["Owner", "Owner"],
-      "name": ["Name", "Name"]
+      "name": ["Name", "Name"],
+      "fightpoint": ["AS", "Ability Score"]
     },
     "deal": {
       "_": "DPS",
@@ -262,7 +263,9 @@
       "hitfail": ["HitF", "Hitfail"],
       "critical": ["CH", "Critical Hit%"],
       "direct": ["DH", "Direct Hit%"],
+      "lucky": ["LH", "Lucky Hit%"],
       "crit_direct": ["!!!", "Critical Direct Hit% (!!!)"],
+      "crit_lucky": ["!!!", "Critical Lucky Hit% (!!!)"],
       "crittypes": ["D/!/!!!", "Direct/Critical/!!! Count"],
       "critpcts": ["Crits%", "Direct/Critical/!!! %"],
       "max": ["Max", "Maxhit (w/o skillname)"],

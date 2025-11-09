@@ -45,8 +45,8 @@ const CONFIG_DEFAULT = {
         'deal.pct',
         'deal.per_second',
         'deal.critical',
-        'deal.direct',
-        'deal.crit_direct'
+        'deal.lucky',
+        'deal.crit_lucky'
       ]
     }, {
       id: 1,
@@ -368,6 +368,12 @@ const COLUMN_INDEX = {
         }
         return name.join(' ')
       }
+    },
+    fightpoint: {
+      v: 'fightpoint',
+      f: (_, conf) => {
+        return _;
+      }
     }
   },
   // deal
@@ -422,8 +428,20 @@ const COLUMN_INDEX = {
         _.toFixed(conf.format.significant_digit.critical) +
         (conf.format.use_tailing_pct? '<small>%</small>' : '') : '-'
     },
+    lucky: {
+      v: _ => 'LuckyHitCount' in _? (parseInt(_.LuckyHitCount) || 0) / (parseInt(_.swings) || 1) * 100 : null,
+      f: (_, conf) => _ !== null?
+        _.toFixed(conf.format.significant_digit.critical) +
+        (conf.format.use_tailing_pct? '<small>%</small>' : '') : '-'
+    },
     crit_direct: {
       v: _ => 'CritDirectHitCount' in _? (parseInt(_.CritDirectHitCount) || 0) / (parseInt(_.swings) || 1) * 100 : null,
+      f: (_, conf) => _ !== null?
+        _.toFixed(conf.format.significant_digit.critical) +
+        (conf.format.use_tailing_pct? '<small>%</small>' : '') : '-'
+    },
+    crit_lucky: {
+      v: _ => 'CritLuckyHitCount' in _? (parseInt(_.CrickLuckyHitCount) || 0) / (parseInt(_.swings) || 1) * 100 : null,
       f: (_, conf) => _ !== null?
         _.toFixed(conf.format.significant_digit.critical) +
         (conf.format.use_tailing_pct? '<small>%</small>' : '') : '-'
